@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="payment_method_monnify" model="payment.method">
+                <field name="name">Monnify</field>
+                <field name="code">monnify</field>
+                <field name="sequence">21</field>
+                <field name="active">False</field>  <!-- Changed from False to True -->
+                <field name="image"
+                        type="base64"
+                        file="payment_monnify/static/description/icon.png" />
+        </record>
+
+        <record id="payment_provider_monnify" model="payment.provider">
+                <field name="name">Monnify</field>
+                <field name="code">monnify</field>
+                <field name="state">disabled</field>
+                <field name="module_id" ref="base.module_payment_monnify" />
+                <field name="company_id" ref="base.main_company" />
+                <field name="image_128"
+                        type="base64"
+                        file="payment_monnify/static/description/icon.png" />
+                <field name="payment_method_ids"
+                        eval="[Command.set([
+                        ref('payment_monnify.payment_method_monnify'),
+                        ref('payment.payment_method_card'),
+                        ref('payment.payment_method_bank_transfer'),
+                     ])]"
+                />
+        </record>
+
+        <record id="account_payment_method_monnify" model="account.payment.method">
+                <field name="name">Monnify</field>
+                <field name="code">monnify</field>
+                <field name='payment_type'>inbound</field>
+
+        </record>
+
+</odoo>

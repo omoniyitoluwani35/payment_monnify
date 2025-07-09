@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+
+    <record id="payment_method_monnify" model="account.payment.method">
+        <field name="name">Monnify</field>
+        <field name="code">monnify</field>
+        <field name="provider_ids" eval="[(4, ref('payment_monnify.payment_provider_monnify'))]" />
+        <field name="image" type="base64" file="payment_monnify/static/description/icon.png" />
+    </record>
+
+
+    <record id="payment_method_monnify" model="payment.method">
+        <field name="name">Monnify</field>
+        <field name="code">monnify</field>
+        <field name="sequence">21</field>
+        <field name="active">False</field>  <!-- Changed from False to True -->
+        <field name="image"
+            type="base64"
+            file="payment_monnify/static/description/icon.png" />
+    </record>
+
+</odoo>
