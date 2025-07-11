@@ -14,7 +14,6 @@
         - Online payments via Monnify
         - Support for card and bank transfer payments
         - Automatic payment validation
-        - Webhook support for real-time updates
     """,
     'author': 'Omoniyi Toluwani ',
     'website': 'https://github.com/omoniyitoluwani35',
